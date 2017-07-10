@@ -240,6 +240,16 @@ class CardStack extends Component {
     const { index } = navigation.state;
     const isVertical = mode === 'modal';
 
+    const { shareElementRender } = TransitionConfigs.getTransitionConfig(
+      this.props.transitionConfig,
+      {},
+      {},
+      isVertical
+    );
+
+    const shareElements =
+      shareElementRender && shareElementRender({ ...this.props, scene });
+
     const responder = PanResponder.create({
       onPanResponderTerminate: () => {
         this._isResponding = false;
@@ -368,6 +378,7 @@ class CardStack extends Component {
           {scenes.map((s: *) => this._renderCard(s))}
         </View>
         {floatingHeader}
+        {shareElements}
       </View>
     );
   }
