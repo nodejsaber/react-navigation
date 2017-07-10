@@ -10,7 +10,7 @@ import {
   View,
   I18nManager,
 } from 'react-native';
-const MIN_SWIPE_DISTANCE = 3;
+const MIN_SWIPE_DISTANCE = 5;
 const DEVICE_WIDTH = parseFloat(Dimensions.get('window').width);
 const THRESHOLD = DEVICE_WIDTH / 2;
 const VX_MAX = 0.1;
