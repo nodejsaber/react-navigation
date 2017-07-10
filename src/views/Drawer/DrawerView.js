@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { PureComponent } from 'react';
-import DrawerLayout from 'react-native-drawer-layout-polyfill';
+import DrawerLayout from './DrawerLayout';
 
 import addNavigationHelpers from '../../addNavigationHelpers';
 import DrawerSidebar from './DrawerSidebar';
