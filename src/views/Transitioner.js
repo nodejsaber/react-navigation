@@ -130,7 +130,7 @@ class Transitioner extends React.Component<*, Props, State> {
       scenes: nextScenes,
     };
 
-    const { position, progress } = nextState;
+    let { position, progress } = nextState;
 
     progress.setValue(0);
 
@@ -149,6 +149,13 @@ class Transitioner extends React.Component<*, Props, State> {
       ...DefaultTransitionSpec,
       ...transitionUserSpec,
     };
+
+    // Replace new Animated Value when NativeDriver not use anymore
+    if (position.__isNative && !transitionSpec.useNativeDriver) {
+      position = new Animated.Value(position.__getValue());
+      nextState.position = position;
+      this._transitionProps.position = position;
+    }
 
     const { timing } = transitionSpec;
     delete transitionSpec.timing;
