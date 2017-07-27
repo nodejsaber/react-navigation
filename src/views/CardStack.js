@@ -224,7 +224,7 @@ class CardStack extends Component {
       const backFromScene = scenes.find((s: *) => s.index === toValue + 1);
       if (!this._isResponding && backFromScene) {
         navigation.dispatch(
-          NavigationActions.back({ key: backFromScene.route.key })
+          NavigationActions.back({ key: backFromScene.route.key, force: true })
         );
       }
     });
