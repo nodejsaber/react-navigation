@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
+import { TabView, PagerPan } from 'react-native-tab-view';
 import SceneView from '../SceneView';
 import withCachedChildNavigation from '../../withCachedChildNavigation';
 
@@ -130,7 +130,7 @@ class TabView extends PureComponent<void, Props, void> {
     );
   };
 
-  _renderPager = (props: *) => <TabViewPagerPan {...props} />;
+  _renderPager = (props: *) => <PagerPan {...props} />;
 
   render() {
     const {
@@ -183,7 +183,7 @@ class TabView extends PureComponent<void, Props, void> {
       style: styles.container,
     };
 
-    return <TabViewAnimated {...props} />;
+    return <TabView {...props} />;
   }
 }
 
